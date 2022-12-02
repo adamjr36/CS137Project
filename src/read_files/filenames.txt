@@ -1,0 +1,27 @@
+Team Stats Arsenal 18-23.xlsx
+Team Stats Aston Villa 19-23.xlsx
+Team Stats Bournemouth 18-20, 22-23.xlsx
+Team Stats Brentford 21-23.xlsx
+Team Stats Brighton 18-23.xlsx
+Team Stats Burnley 18-22.xlsx
+Team Stats Cardiff City 18-19.xlsx
+Team Stats Chelsea 18-23.xlsx
+Team Stats Crystal Palace 18-23.xlsx
+Team Stats Everton 18-23.xlsx
+Team Stats Fulham 18-19, 20-21, 22-23.xlsx
+Team Stats Huddersfield Town 18-19.xlsx
+Team Stats Leeds United 20-23.xlsx
+Team Stats Leicester City 18-23.xlsx
+Team Stats Liverpool 18-23.xlsx
+Team Stats Manchester City 18-23.xlsx
+Team Stats Manchester United 18-23.xlsx
+Team Stats Newcastle United 22:23.xlsx
+Team Stats Norwich City 19-20, 21-22.xlsx
+Team Stats Nottingham Forest 22-23.xlsx
+Team Stats Sheffield United 19-21.xlsx
+Team Stats Southampton 18-23.xlsx
+Team Stats Tottenham Hotspur 18-23.xlsx
+Team Stats Watford 18-20, 21-22.xlsx
+Team Stats West Bromwich Albion 20-21.xlsx
+Team Stats West Ham United 18-23.xlsx
+Team Stats Wolverhampton Wanderers 18-23.xlsx

@@ -1,6 +1,7 @@
 from gnews import GNews
 import sys
 
+''''''
 class GoogleNews(GNews):
     def __init__(self, *args, **kwargs):
         super(GoogleNews, self).__init__(*args, **kwargs)
@@ -37,6 +38,43 @@ class GoogleNews(GNews):
     
         return date_str
 
-if __name__=='__main__':
+
+
+'''
+Args: List of queries followed by GoogleNews object
+query: [(text, [(fr, to)])]
+    Where text is the string to search,
+            fr are the start dates,
+            to are the end dates
+        fr and to may be None
+
+Returns: List of tuples of a list: [(text, [results])]
+
+        Where each index in the outer list corresponds to the 
+        original query, and each index in the inner list is an actual article. 
+        
+        len of inner list can be decided by 'max_results=x'
+        in arg for GoogleNews
+'''
+def getnews(queries, gnews):
+    return [ (text, [ gnews.get_news(text, date[0], date[1]) 
+                                                    for date in dates ]) 
+                    for text, dates in queries ]
+
+
+'''
+Input:
+[('Tottenham', [((2022, 11, 11), (2022, 11, 12))]), 
+ ('Liverpool', [(None, None))],
+ ('Brighton', [((2022, 11, 11), (2022, 11, 12)), ('2022-11-04', '2022-11-05')])]
+
+ Output:
+ [('Tottenham', [x articles]),
+  ('Liverpool', [x articles]),
+  ('Brighton', [x articles, x articles])]
+
+'''
+
+'''if __name__=='__main__':
     gnews=GoogleNews(language='en')
-    print(gnews.get_news('Tottenham', (2022, 11, 10), (2022, 11, 11))[0])
+    print(gnews.get_news('Tottenham', (2022, 11, 10), (2022, 11, 11))[0])'''
