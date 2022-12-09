@@ -29,20 +29,25 @@ for csv in csvs:
     df['Scheme'] = df['Scheme'].str.split().str[0]
     
     #convert score
-    def convert(x):
-        x = x.split(':')
-        hw = x[0]
-        aw = x[1]
+    def convert(row):
+        score = row['Score'].split(':')
+        hw = score[0]
+        aw = score[1]
+        if hw == aw:
+            return 0
         if hw > aw:
-            return 1
-        elif aw > hw:
-            return -1
-        return 0
-    df['Home Win'] = df['Score'].map(convert)
+            if row['Home'] == 1:
+                return 1
+            
+        else:
+            if row['Home'] == 0:
+                return 1
+        return -1
+
+    df['Win'] = df.apply(lambda row: convert(row), axis=1)
     
 
-    df = df.drop(columns=['Home Team', 'Away Team', 'Unnamed: 0', 'Score', 'Match', 'Competition', 'Duration', 'Team'])
-
+    df = df.drop(columns=['Unnamed: 0', 'Score', 'Competition', 'Duration'])
     df.to_csv(os.path.join(data_dir, csv))
 
 
