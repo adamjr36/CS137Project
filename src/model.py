@@ -5,8 +5,20 @@ import torch.nn.functional as F
 
 class TeamModel(nn.Module):
 
-    def __init__(self, feature_size):
+    def __init__(self, input_size, hidden_size, feature_size):
         super(TeamModel, self).__init__()
+        self.encoder = nn.Sequential(*[
+            nn.Linear(input_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(input_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(input_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, feature_size)
+        ])
+    
+    def forward(self, x):
+        return self.encoder(x)
 
 
 class BaseModel(nn.Module):
