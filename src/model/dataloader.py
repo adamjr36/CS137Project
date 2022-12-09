@@ -33,11 +33,11 @@ def match_history(team, date, k):
     df = team_df(team)
     df = df[df['Date'] < date]
     df = df.sort_values('Date', ascending=False).head(k)
+    print(df)
     return df #drop cols
 
 def team_df(team):
     df = pd.read_csv(os.path.join(data_dir, '{}_data.csv'.format(team)))
-    print(len(df.columns))
     return df
 
 
@@ -86,8 +86,10 @@ class MyDataset(Dataset):
             homedf = match_history(home, date, self.k).to_numpy()
             awaydf = match_history(away, date, self.k).to_numpy()
 
-            homearray[i] = homedf
-            awayarray[i] = awaydf
+            print(homedf)
+
+            homearray[i] = homedf.resize(K, D)
+            awayarray[i] = awaydf.resize(K, D)
 
         if not single:
             for i in range(N):
