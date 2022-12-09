@@ -21,7 +21,27 @@ for csv in csvs:
     df['Home Team'] = home
     df['Away Team'] = away
     df['Score'] = score
-    df = df.drop(columns=['Unnamed: 0'])
+    
+    team = df['Team'].values[0]
+    df['Home'] = df['Home Team'].map(lambda x: 1 if (x == team) else 0)
+
+    #Drop % from scheme
+    df['Scheme'] = df['Scheme'].str.split().str[0]
+    
+    #convert score
+    def convert(x):
+        x = x.split(':')
+        hw = x[0]
+        aw = x[1]
+        if hw > aw:
+            return 1
+        elif aw > hw:
+            return -1
+        return 0
+    df['Home Win'] = df['Score'].map(convert)
+    
+
+    df = df.drop(columns=['Home Team', 'Away Team', 'Unnamed: 0', 'Score', 'Match', 'Competition', 'Duration', 'Team'])
 
     df.to_csv(os.path.join(data_dir, csv))
 
