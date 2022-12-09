@@ -23,9 +23,9 @@ class TeamModel(nn.Module):
 
 class BaseModel(nn.Module):
 
-    def __init__(self, feature_size, hidden_size, output_size=3):
+    def __init__(self, input_size, feature_size, hidden_size, output_size=3):
         super(BaseModel, self).__init__()
-        self.team_analyzer = TeamModel(feature_size)
+        self.team_analyzer = TeamModel(input_size, feature_size)
         self.predictor = nn.Sequential(*[
             nn.Linear(feature_size*2, hidden_size),
             nn.ReLU(),
