@@ -33,7 +33,6 @@ def match_history(team, date, k):
     df = team_df(team)
     df = df[df['Date'] < date]
     df = df.sort_values('Date', ascending=False).head(k)
-    print(df)
     return df #drop cols
 
 def team_df(team):
@@ -75,8 +74,8 @@ class MyDataset(Dataset):
         K = self.k
         D = 112
 
-        homearray = np.zeros((N, K, D))
-        awayarray = np.zeros((N, K, D))
+        homearray = np.full((N, K, D), np.nan, dtype=object)
+        awayarray = np.full((N, K, D), np.nan, dtype=object)
 
         def get_data(row, i):
             home = row[0]
@@ -86,10 +85,11 @@ class MyDataset(Dataset):
             homedf = match_history(home, date, self.k).to_numpy()
             awaydf = match_history(away, date, self.k).to_numpy()
 
-            print(homedf)
+            homedf = np.pad(homedf, [(0, self.k - len(homedf))])
+            awaydf = np.pad(homedf, [(0, self.k - len(homedf))])
 
-            homearray[i] = homedf.resize(K, D)
-            awayarray[i] = awaydf.resize(K, D)
+            homearray[i] = homedf
+            awayarray[i] = awaydf
 
         if not single:
             for i in range(N):
@@ -100,12 +100,8 @@ class MyDataset(Dataset):
         return homearray, awayarray, y
 
 if __name__ == '__main__':
-    c = input("Make inputs csv? y/n")
-    if c == 'y':
-        make_inputs()
-
-    else:
-        dataset = MyDataset('x.csv', 'y.csv')
-        
-        x1, x2, y = dataset[1:6]
-        print(x1, x2, y)
+    
+    dataset = MyDataset('x.csv', 'y.csv')
+    
+    x1, x2, y = dataset[1]
+    print(x1, x2, y)
