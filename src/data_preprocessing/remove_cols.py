@@ -21,7 +21,7 @@ for csv in csvs:
     print(csv)
     if csv == 'x.csv' or csv == 'master_data.csv' or csv == 'y.csv': continue
     df = pd.read_csv(os.path.join(data_dir, csv))
-    
+
     print(df.shape) 
 
     if df.empty:
@@ -29,5 +29,6 @@ for csv in csvs:
         assert(0)
     
     df = df.drop(labels=redundant, axis=1)
+    df.to_csv(os.path.join(data_dir, csv))
 
     print(df.shape)
