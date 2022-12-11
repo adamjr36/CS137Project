@@ -103,5 +103,5 @@ if __name__ == '__main__':
     
     dataset = MyDataset('x.csv', 'y.csv')
     
-    x1, x2, y = dataset[1]
+    x1, x2, y = dataset[1:11]
     print(x1, x2, y)

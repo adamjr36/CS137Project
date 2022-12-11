@@ -103,7 +103,7 @@
 212,Crystal Palace,Arsenal,2020-01-11
 214,Arsenal,Manchester United,2020-01-01
 216,Arsenal,Chelsea,2019-12-29
-218,AFC Bournemouth,Arsenal,2019-12-26
+218,Bournemouth,Arsenal,2019-12-26
 220,Everton,Arsenal,2019-12-21
 222,Arsenal,Manchester City,2019-12-15
 224,West Ham United,Arsenal,2019-12-09
@@ -113,7 +113,7 @@
 232,Leicester City,Arsenal,2019-11-09
 234,Arsenal,Wolverhampton Wanderers,2019-11-02
 238,Sheffield United,Arsenal,2019-10-21
-240,Arsenal,AFC Bournemouth,2019-10-06
+240,Arsenal,Bournemouth,2019-10-06
 242,Manchester United,Arsenal,2019-09-30
 244,Arsenal,Aston Villa,2019-09-22
 246,Watford,Arsenal,2019-09-15
@@ -128,7 +128,7 @@
 266,Watford,Arsenal,2019-04-15
 268,Everton,Arsenal,2019-04-07
 274,Tottenham Hotspur,Arsenal,2019-03-02
-276,Arsenal,AFC Bournemouth,2019-02-27
+276,Arsenal,Bournemouth,2019-02-27
 278,Arsenal,Southampton,2019-02-24
 280,Huddersfield Town,Arsenal,2019-02-09
 282,Manchester City,Arsenal,2019-02-03
@@ -143,7 +143,7 @@
 300,Arsenal,Huddersfield Town,2018-12-08
 302,Manchester United,Arsenal,2018-12-05
 304,Arsenal,Tottenham Hotspur,2018-12-02
-306,AFC Bournemouth,Arsenal,2018-11-25
+306,Bournemouth,Arsenal,2018-11-25
 310,Arsenal,Liverpool,2018-11-03
 312,Crystal Palace,Arsenal,2018-10-28
 314,Arsenal,Leicester City,2018-10-22
@@ -249,7 +249,7 @@
 534,Leicester City,Aston Villa,2020-03-09
 536,Southampton,Aston Villa,2020-02-22
 538,Aston Villa,Tottenham Hotspur,2020-02-16
-540,AFC Bournemouth,Aston Villa,2020-02-01
+540,Bournemouth,Aston Villa,2020-02-01
 542,Aston Villa,Watford,2020-01-21
 544,Brighton,Aston Villa,2020-01-18
 546,Aston Villa,Manchester City,2020-01-12
@@ -268,7 +268,7 @@
 580,Aston Villa,West Ham United,2019-09-16
 582,Crystal Palace,Aston Villa,2019-08-31
 584,Aston Villa,Everton,2019-08-23
-586,Aston Villa,AFC Bournemouth,2019-08-17
+586,Aston Villa,Bournemouth,2019-08-17
 588,Tottenham Hotspur,Aston Villa,2019-08-10
 590,Bournemouth,Everton,2022-11-12
 592,Leeds United,Bournemouth,2022-11-05
@@ -283,75 +283,75 @@
 610,Bournemouth,Wolverhampton Wanderers,2022-08-31
 612,Liverpool,Bournemouth,2022-08-27
 616,Manchester City,Bournemouth,2022-08-13
-620,Everton,AFC Bournemouth,2020-07-26
-622,AFC Bournemouth,Southampton,2020-07-19
-624,Manchester City,AFC Bournemouth,2020-07-15
-626,AFC Bournemouth,Leicester City,2020-07-12
-628,AFC Bournemouth,Tottenham Hotspur,2020-07-09
-630,Manchester United,AFC Bournemouth,2020-07-04
-632,AFC Bournemouth,Newcastle United,2020-07-01
-634,Wolverhampton Wanderers,AFC Bournemouth,2020-06-24
-636,AFC Bournemouth,Crystal Palace,2020-06-20
-638,Liverpool,AFC Bournemouth,2020-03-07
-640,AFC Bournemouth,Chelsea,2020-02-29
-642,Burnley,AFC Bournemouth,2020-02-22
-644,Sheffield United,AFC Bournemouth,2020-02-09
-648,AFC Bournemouth,Brighton,2020-01-21
-650,Norwich City,AFC Bournemouth,2020-01-18
-652,AFC Bournemouth,Watford,2020-01-12
-654,West Ham United,AFC Bournemouth,2020-01-01
-656,Brighton,AFC Bournemouth,2019-12-28
-660,AFC Bournemouth,Burnley,2019-12-21
-662,Chelsea,AFC Bournemouth,2019-12-14
-664,AFC Bournemouth,Liverpool,2019-12-07
-666,Crystal Palace,AFC Bournemouth,2019-12-03
-668,Tottenham Hotspur,AFC Bournemouth,2019-11-30
-670,AFC Bournemouth,Wolverhampton Wanderers,2019-11-23
-672,Newcastle United,AFC Bournemouth,2019-11-09
-674,AFC Bournemouth,Manchester United,2019-11-02
-676,Watford,AFC Bournemouth,2019-10-26
-678,AFC Bournemouth,Norwich City,2019-10-19
-682,AFC Bournemouth,West Ham United,2019-09-28
-684,Southampton,AFC Bournemouth,2019-09-20
-686,AFC Bournemouth,Everton,2019-09-15
-688,Leicester City,AFC Bournemouth,2019-08-31
-690,AFC Bournemouth,Manchester City,2019-08-25
-694,AFC Bournemouth,Sheffield United,2019-08-10
-696,Crystal Palace,AFC Bournemouth,2019-05-12
-698,AFC Bournemouth,Tottenham Hotspur,2019-05-04
-700,Southampton,AFC Bournemouth,2019-04-27
-702,AFC Bournemouth,Fulham,2019-04-20
-704,Brighton,AFC Bournemouth,2019-04-13
-706,AFC Bournemouth,Burnley,2019-04-06
-708,Leicester City,AFC Bournemouth,2019-03-30
-710,AFC Bournemouth,Newcastle United,2019-03-16
-712,Huddersfield Town,AFC Bournemouth,2019-03-09
-714,AFC Bournemouth,Manchester City,2019-03-02
-718,AFC Bournemouth,Wolverhampton Wanderers,2019-02-23
-720,Liverpool,AFC Bournemouth,2019-02-09
-722,Cardiff City,AFC Bournemouth,2019-02-02
-724,AFC Bournemouth,Chelsea,2019-01-30
-726,AFC Bournemouth,West Ham United,2019-01-19
-728,Everton,AFC Bournemouth,2019-01-13
-730,AFC Bournemouth,Watford,2019-01-02
-732,Manchester United,AFC Bournemouth,2018-12-30
-734,Tottenham Hotspur,AFC Bournemouth,2018-12-26
-736,AFC Bournemouth,Brighton,2018-12-22
-738,Wolverhampton Wanderers,AFC Bournemouth,2018-12-15
-740,AFC Bournemouth,Liverpool,2018-12-08
-742,AFC Bournemouth,Huddersfield Town,2018-12-04
-744,Manchester City,AFC Bournemouth,2018-12-01
-750,AFC Bournemouth,Manchester United,2018-11-03
-752,Fulham,AFC Bournemouth,2018-10-27
-754,AFC Bournemouth,Southampton,2018-10-20
-756,Watford,AFC Bournemouth,2018-10-06
-758,AFC Bournemouth,Crystal Palace,2018-10-01
-760,Burnley,AFC Bournemouth,2018-09-22
-762,AFC Bournemouth,Leicester City,2018-09-15
-764,Chelsea,AFC Bournemouth,2018-09-01
-766,AFC Bournemouth,Everton,2018-08-25
-768,West Ham United,AFC Bournemouth,2018-08-18
-770,AFC Bournemouth,Cardiff City,2018-08-11
+620,Everton,Bournemouth,2020-07-26
+622,Bournemouth,Southampton,2020-07-19
+624,Manchester City,Bournemouth,2020-07-15
+626,Bournemouth,Leicester City,2020-07-12
+628,Bournemouth,Tottenham Hotspur,2020-07-09
+630,Manchester United,Bournemouth,2020-07-04
+632,Bournemouth,Newcastle United,2020-07-01
+634,Wolverhampton Wanderers,Bournemouth,2020-06-24
+636,Bournemouth,Crystal Palace,2020-06-20
+638,Liverpool,Bournemouth,2020-03-07
+640,Bournemouth,Chelsea,2020-02-29
+642,Burnley,Bournemouth,2020-02-22
+644,Sheffield United,Bournemouth,2020-02-09
+648,Bournemouth,Brighton,2020-01-21
+650,Norwich City,Bournemouth,2020-01-18
+652,Bournemouth,Watford,2020-01-12
+654,West Ham United,Bournemouth,2020-01-01
+656,Brighton,Bournemouth,2019-12-28
+660,Bournemouth,Burnley,2019-12-21
+662,Chelsea,Bournemouth,2019-12-14
+664,Bournemouth,Liverpool,2019-12-07
+666,Crystal Palace,Bournemouth,2019-12-03
+668,Tottenham Hotspur,Bournemouth,2019-11-30
+670,Bournemouth,Wolverhampton Wanderers,2019-11-23
+672,Newcastle United,Bournemouth,2019-11-09
+674,Bournemouth,Manchester United,2019-11-02
+676,Watford,Bournemouth,2019-10-26
+678,Bournemouth,Norwich City,2019-10-19
+682,Bournemouth,West Ham United,2019-09-28
+684,Southampton,Bournemouth,2019-09-20
+686,Bournemouth,Everton,2019-09-15
+688,Leicester City,Bournemouth,2019-08-31
+690,Bournemouth,Manchester City,2019-08-25
+694,Bournemouth,Sheffield United,2019-08-10
+696,Crystal Palace,Bournemouth,2019-05-12
+698,Bournemouth,Tottenham Hotspur,2019-05-04
+700,Southampton,Bournemouth,2019-04-27
+702,Bournemouth,Fulham,2019-04-20
+704,Brighton,Bournemouth,2019-04-13
+706,Bournemouth,Burnley,2019-04-06
+708,Leicester City,Bournemouth,2019-03-30
+710,Bournemouth,Newcastle United,2019-03-16
+712,Huddersfield Town,Bournemouth,2019-03-09
+714,Bournemouth,Manchester City,2019-03-02
+718,Bournemouth,Wolverhampton Wanderers,2019-02-23
+720,Liverpool,Bournemouth,2019-02-09
+722,Cardiff City,Bournemouth,2019-02-02
+724,Bournemouth,Chelsea,2019-01-30
+726,Bournemouth,West Ham United,2019-01-19
+728,Everton,Bournemouth,2019-01-13
+730,Bournemouth,Watford,2019-01-02
+732,Manchester United,Bournemouth,2018-12-30
+734,Tottenham Hotspur,Bournemouth,2018-12-26
+736,Bournemouth,Brighton,2018-12-22
+738,Wolverhampton Wanderers,Bournemouth,2018-12-15
+740,Bournemouth,Liverpool,2018-12-08
+742,Bournemouth,Huddersfield Town,2018-12-04
+744,Manchester City,Bournemouth,2018-12-01
+750,Bournemouth,Manchester United,2018-11-03
+752,Fulham,Bournemouth,2018-10-27
+754,Bournemouth,Southampton,2018-10-20
+756,Watford,Bournemouth,2018-10-06
+758,Bournemouth,Crystal Palace,2018-10-01
+760,Burnley,Bournemouth,2018-09-22
+762,Bournemouth,Leicester City,2018-09-15
+764,Chelsea,Bournemouth,2018-09-01
+766,Bournemouth,Everton,2018-08-25
+768,West Ham United,Bournemouth,2018-08-18
+770,Bournemouth,Cardiff City,2018-08-11
 772,Manchester City,Brentford,2022-11-12
 774,Nottingham Forest,Brentford,2022-11-05
 776,Brentford,Wolverhampton Wanderers,2022-10-29
