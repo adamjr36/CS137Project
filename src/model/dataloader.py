@@ -85,8 +85,10 @@ class MyDataset(Dataset):
             homedf = match_history(home, date, self.k).to_numpy()
             awaydf = match_history(away, date, self.k).to_numpy()
 
-            homedf = np.pad(homedf, [(0, self.k - len(homedf))])
-            awaydf = np.pad(homedf, [(0, self.k - len(homedf))])
+            print(homedf.shape)
+
+            homedf = np.pad(homedf, [(0, self.k - len(homedf)), (0, 0)])
+            awaydf = np.pad(awaydf, [(0, self.k - len(awaydf)), (0, 0)])
 
             homearray[i] = homedf
             awayarray[i] = awaydf
@@ -100,8 +102,16 @@ class MyDataset(Dataset):
         return homearray, awayarray, y
 
 if __name__ == '__main__':
+
+    #for csv in csvs:
+     #   df = pd.read_csv(os.path.join(data_dir, csv))
+      #  print(csv)
+       # print(len(df.columns))
     
     dataset = MyDataset('x.csv', 'y.csv')
     
-    x1, x2, y = dataset[1:11]
+    
+    x1, x2, y = dataset[0]
+    print(dataset.x.iloc[0])
+    print(x1.shape, x2.shape)
     print(x1, x2, y)
