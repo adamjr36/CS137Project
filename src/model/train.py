@@ -24,7 +24,7 @@ opt = torch.optim.Adam(model.parameters(), lr=lr)
 loss_fn = torch.nn.CrossEntropyLoss()
 
 
-if __name__ == '__main__':
+def train(train_loader, model, opt, loss_fn, epochs)
     loss = []
 
     for ep in range(epochs):
