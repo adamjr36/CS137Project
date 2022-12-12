@@ -72,7 +72,7 @@ class MyDataset(Dataset):
             
         N = 1 if single else x.shape[0]
         K = self.k
-        D = 110
+        D = 109
 
         homearray = np.full((N, K, D), np.nan, dtype=object)
         awayarray = np.full((N, K, D), np.nan, dtype=object)
@@ -98,6 +98,11 @@ class MyDataset(Dataset):
                 get_data(x[i], i)
         else:
             get_data(x, 0)
+        homearray = np.delete(homearray, [0, 1, 2], axis=2)
+        awayarray = np.delete(awayarray, [0, 1, 2], axis=2)
+
+        homearray = np.squeeze(homearray, axis=0)
+        awayarray = np.squeeze(awayarray, axis=0)
 
         return np.array(homearray, dtype=np.float32), np.array(awayarray, dtype=np.float32), y
 

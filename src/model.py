@@ -40,7 +40,9 @@ class BaseModel(nn.Module):
     def forward(self, x, y):
         x_features = self.team_analyzer(x)
         y_features = self.team_analyzer(y)
+        print(y_features.shape)
         features = torch.concat(x_features, y_features)
+        print(features.shape)
         outcome = self.predictor(features)
         return outcome
 

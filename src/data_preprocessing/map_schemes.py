@@ -23,12 +23,15 @@ for csv in csvs:
     if csv == 'x.csv' or csv == 'master_data.csv' or csv == 'y.csv': continue
     df = pd.read_csv(os.path.join(data_dir, csv))
 
+    # for i in range(df.shape[0]):
+    #     if df['Scheme'][i] not in scheme_map:
+    #         num_schemes += 1
+    #         scheme_map[df['Scheme'][i]] = num_schemes
+    #     df['Scheme'][i] = scheme_map[df['Scheme'][i]]
+    # print(df['Scheme'])
+
     for i in range(df.shape[0]):
-        if df['Scheme'][i] not in scheme_map:
-            num_schemes += 1
-            scheme_map[df['Scheme'][i]] = num_schemes
-        df['Scheme'][i] = scheme_map[df['Scheme'][i]]
-    print(df['Scheme'])
+        df['Win'][i] += 1
 
     df.to_csv(os.path.join(data_dir, csv))
         
