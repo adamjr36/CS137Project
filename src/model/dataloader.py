@@ -72,7 +72,7 @@ class MyDataset(Dataset):
             
         N = 1 if single else x.shape[0]
         K = self.k
-        D = 112
+        D = 110
 
         homearray = np.full((N, K, D), np.nan, dtype=object)
         awayarray = np.full((N, K, D), np.nan, dtype=object)
