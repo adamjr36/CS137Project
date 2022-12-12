@@ -85,6 +85,8 @@ class MyDataset(Dataset):
             homedf = match_history(home, date, self.k).to_numpy()
             awaydf = match_history(away, date, self.k).to_numpy()
 
+            print(homedf.shape)
+
             homedf = np.pad(homedf, [(0, self.k - len(homedf)), (0, 0)])
             awaydf = np.pad(awaydf, [(0, self.k - len(awaydf)), (0, 0)])
 
