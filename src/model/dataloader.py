@@ -72,7 +72,7 @@ class MyDataset(Dataset):
             
         N = 1 if single else x.shape[0]
         K = self.k
-        D = 112
+        D = 110
 
         homearray = np.full((N, K, D), np.nan, dtype=object)
         awayarray = np.full((N, K, D), np.nan, dtype=object)
@@ -85,7 +85,7 @@ class MyDataset(Dataset):
             homedf = match_history(home, date, self.k).to_numpy()
             awaydf = match_history(away, date, self.k).to_numpy()
 
-            print(homedf.shape)
+            # print(homedf.shape)
 
             homedf = np.pad(homedf, [(0, self.k - len(homedf)), (0, 0)])
             awaydf = np.pad(awaydf, [(0, self.k - len(awaydf)), (0, 0)])
@@ -99,7 +99,7 @@ class MyDataset(Dataset):
         else:
             get_data(x, 0)
 
-        return homearray, awayarray, y
+        return np.array(homearray, dtype=np.float32), np.array(awayarray, dtype=np.float32), y
 
 if __name__ == '__main__':
 
@@ -112,6 +112,6 @@ if __name__ == '__main__':
     
     
     x1, x2, y = dataset[0]
-    print(dataset.x.iloc[0])
-    print(x1.shape, x2.shape)
+    # print(dataset.x.iloc[0])
+    # print(x1.shape, x2.shape)
     print(x1, x2, y)

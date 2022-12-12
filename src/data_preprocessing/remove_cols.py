@@ -16,6 +16,7 @@ data = []
 csvs = os.listdir(data_dir)
 
 redundant = ['Match', 'Team', 'Home Team', 'Away Team']
+redundant = ['Unnamed: 0.1', 'Unnamed: 0']
 
 for csv in csvs:
     print(csv)
