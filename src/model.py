@@ -10,9 +10,9 @@ class TeamModel(nn.Module):
         self.encoder = nn.Sequential(*[
             nn.Linear(input_size, hidden_size),
             nn.ReLU(),
-            nn.Linear(input_size, hidden_size),
+            nn.Linear(hidden_size, hidden_size),
             nn.ReLU(),
-            nn.Linear(input_size, hidden_size),
+            nn.Linear(hidden_size, hidden_size),
             nn.ReLU(),
             nn.Linear(hidden_size, feature_size)
         ])
@@ -29,9 +29,9 @@ class BaseModel(nn.Module):
         self.predictor = nn.Sequential(*[
             nn.Linear(feature_size*2, hidden_size),
             nn.ReLU(),
-            nn.Linear(hidden_size),
+            nn.Linear(hidden_size, hidden_size),
             nn.ReLU(),
-            nn.Linear(hidden_size),
+            nn.Linear(hidden_size, hidden_size),
             nn.ReLU(),
             nn.Linear(hidden_size, output_size),
             nn.Softmax()
