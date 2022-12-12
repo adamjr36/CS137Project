@@ -20,7 +20,7 @@ num_schemes = 0
 
 for csv in csvs:
     print(csv)
-    if csv == 'x.csv' or csv == 'master_data.csv' or csv == 'y.csv': continue
+    if csv != 'y.csv': continue
     df = pd.read_csv(os.path.join(data_dir, csv))
 
     # for i in range(df.shape[0]):

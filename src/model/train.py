@@ -8,11 +8,11 @@ from model import BaseModel
 
 # Hyper Parameters
 K = 10
-epochs = 10
-lr = 0.01
-feature_size = 120
-hidden_size1 = 100 
-hidden_size2 = 100
+epochs = 5
+lr = 0.001
+feature_size = 128
+hidden_size1 = 512 
+hidden_size2 = 256
 
 # Preparing train, val, test sets
 # TODO()
@@ -25,9 +25,12 @@ loss_fn = torch.nn.CrossEntropyLoss()
 
 
 if __name__ == '__main__':
+    loss = []
+
     for ep in range(epochs):
         running_loss = 0
         for i, data in enumerate(train_loader):
+            # print(i)
             t1, t2, y = data 
             y = F.one_hot(y, num_classes=3)
 
@@ -38,5 +41,15 @@ if __name__ == '__main__':
             training_loss.backward()
             opt.step()
         print(f'Epoch {ep}, loss becomes {running_loss}')
+        loss.append(training_loss.item())
+    correct = 0
+    for i, data in enumerate(train_loader):
+        t1, t2, y = data 
+        y_hat = model(t1, t2)
+        y_hat = torch.argmax(y_hat)
+        if y_hat == y: correct += 1
+    print(correct/len(train_loader))
+    
+    print(loss)
         
 

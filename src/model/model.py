@@ -8,7 +8,8 @@ class TeamModel(nn.Module):
     def __init__(self, input_size, hidden_size, feature_size):
         super(TeamModel, self).__init__()
         self.encoder = nn.Sequential(*[
-            nn.Linear(input_size, hidden_size),
+            nn.Flatten(),
+            nn.Linear(input_size*10, hidden_size),
             nn.ReLU(),
             nn.Linear(hidden_size, hidden_size),
             nn.ReLU(),
@@ -39,9 +40,12 @@ class BaseModel(nn.Module):
 
     def forward(self, x, y):
         x_features = self.team_analyzer(x)
+        # print(x_features.shape)
         y_features = self.team_analyzer(y)
-        features = torch.concat(x_features, y_features)
+        # print(y_features.shape)
+        features = torch.concat([x_features, y_features], axis=1)
         outcome = self.predictor(features)
+        # print(outcome.shape)
         return outcome
 
 
