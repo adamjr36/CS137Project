@@ -34,7 +34,7 @@ class TeamModel(nn.Module):
                 5,
                 5,
                 5,
-                5,
+                2,
                 padding='valid'
             ),
             nn.BatchNorm1d(5),
@@ -42,7 +42,7 @@ class TeamModel(nn.Module):
             nn.MaxPool1d(2),
 
             nn.Conv1d(
-                K,
+                5,
                 5,
                 5,
                 2,
