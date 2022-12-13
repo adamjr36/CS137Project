@@ -62,7 +62,7 @@ def train(train_loader, val_loader, model, opt, loss_fn, epochs, device):
             print(correct/len(train_loader))
 
         val_acc.append(correct / len(train_loader))
-        val_loss.append(v_loss.item())
+        val_loss.append(v_loss)
     
     return train_loss, val_loss, val_acc
 
