@@ -18,13 +18,9 @@ hidden_size2 = 256
 # TODO()
 
 # Training
-train_loader = DataLoader(MyDataset('x.csv', 'y.csv'), shuffle=True, batch_size=1)
-model = BaseModel(106, feature_size, hidden_size1, hidden_size2, 3)
-opt = torch.optim.Adam(model.parameters(), lr=lr)
-loss_fn = torch.nn.CrossEntropyLoss()
 
 
-def train(train_loader, model, opt, loss_fn, epochs)
+def train(train_loader, model, opt, loss_fn, epochs, device):
     loss = []
 
     for ep in range(epochs):
@@ -32,6 +28,7 @@ def train(train_loader, model, opt, loss_fn, epochs)
         for i, data in enumerate(train_loader):
             # print(i)
             t1, t2, y = data 
+            t1, t2, y = t1.to(device), t2.to(device), y.to(device)
             y = F.one_hot(y, num_classes=3)
 
             opt.zero_grad()
