@@ -42,6 +42,14 @@ class BaseModel(nn.Module):
             nn.ReLU(),
             nn.Linear(hidden_size2, hidden_size2),
             nn.ReLU(),
+            nn.Linear(hidden_size2, hidden_size2),
+            nn.ReLU(),
+            nn.Linear(hidden_size2, hidden_size2),
+            nn.ReLU(),
+            nn.Linear(hidden_size2, hidden_size2),
+            nn.ReLU(),
+            nn.Linear(hidden_size2, hidden_size2),
+            nn.ReLU(),
             nn.Linear(hidden_size2, output_size),
             nn.Softmax()
         ])
