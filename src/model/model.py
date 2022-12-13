@@ -14,7 +14,7 @@ class TeamModel(nn.Module):
                 [5, 5],
                 [2, 2],
                 padding='valid'
-            )
+            ),
             nn.BatchNorm2d(5),
             nn.ReLU(),
             nn.nn.MaxPool2d(2),
@@ -25,7 +25,7 @@ class TeamModel(nn.Module):
                 [5, 5],
                 [2, 2],
                 padding='valid'
-            )
+            ),
             nn.BatchNorm2d(5),
             nn.ReLU(),
             nn.nn.MaxPool2d(2),
@@ -36,7 +36,7 @@ class TeamModel(nn.Module):
                 [5, 5],
                 [2, 2],
                 padding='valid'
-            )
+            ),
             nn.BatchNorm2d(5),
             nn.ReLU(),
             nn.nn.MaxPool2d(2),
@@ -47,7 +47,7 @@ class TeamModel(nn.Module):
                 [5, 5],
                 [2, 2],
                 padding='valid'
-            )
+            ),
             nn.BatchNorm2d(5),
             nn.ReLU(),
             nn.nn.MaxPool2d(2),
