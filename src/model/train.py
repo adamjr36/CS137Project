@@ -3,8 +3,6 @@ import torch
 import torch.nn.functional as F 
 import matplotlib.pyplot as plt 
 from torch.utils.data import Dataset, DataLoader
-from dataloader import MyDataset
-from model import BaseModel
 
 # Hyper Parameters
 K = 10
@@ -37,11 +35,12 @@ def train(train_loader, model, opt, loss_fn, epochs, device):
             running_loss += training_loss.item()
             training_loss.backward()
             opt.step()
-        print(f'Epoch {ep}, loss becomes {running_loss}')
+        print(f'Epoch {ep}, loss becomes {running_loss/len(train_loader)}')
         loss.append(training_loss.item())
     correct = 0
     for i, data in enumerate(train_loader):
         t1, t2, y = data 
+        t1, t2, y = t1.to(device), t2.to(device), y.to(device)
         y_hat = model(t1, t2)
         y_hat = torch.argmax(y_hat)
         if y_hat == y: correct += 1
