@@ -6,10 +6,6 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 import os
 
-root = os.path.dirname(os.path.dirname(os.getcwd()))
-data_dir = os.path.join(root, 'CS137Project/cleaned_data')
-# csvs = os.listdir(data_dir)
-
 def make_inputs():
     df = pd.read_csv(os.path.join(data_dir, 'master_data.csv'))
     df = df[['Match', 'Home Team', 'Away Team', 'Date', 'Win', 'Team', 'Home']]
@@ -29,20 +25,19 @@ def make_inputs():
     df_y.to_csv(os.path.join(data_dir, 'y.csv'))
 
 
-def match_history(team, date, k):
-    df = team_df(team)
+def match_history(data_dir, team, date, k):
+    df = team_df(data_dir, team)
     df = df[df['Date'] < date]
     df = df.sort_values('Date', ascending=False).head(k)
     return df #drop cols
 
-def team_df(team):
+def team_df(data_dir, team):
     df = pd.read_csv(os.path.join(data_dir, '{}_data.csv'.format(team)))
     return df
 
 
 class MyDataset(Dataset):
     def __init__(self, data_dir, x, y, k=10, seed=None):
-        # print(os.path.join(data_dir, x))
         self.data_dir = data_dir
         x = pd.read_csv(os.path.join(data_dir, x))
         y = pd.read_csv(os.path.join(data_dir, y))
@@ -79,13 +74,15 @@ class MyDataset(Dataset):
         homearray = np.full((N, K, D), np.nan, dtype=object)
         awayarray = np.full((N, K, D), np.nan, dtype=object)
 
-        def get_data(row, i):
+        def get_data(data_dir, row, i):
             home = row[0]
             away = row[1]
             date = row[2]
 
-            homedf = match_history(home, date, self.k).to_numpy()
-            awaydf = match_history(away, date, self.k).to_numpy()
+            homedf = match_history(data_dir, home, date, self.k).to_numpy()
+            awaydf = match_history(data_dir, away, date, self.k).to_numpy()
+
+            # print(homedf.shape)
 
             homedf = np.pad(homedf, [(0, self.k - len(homedf)), (0, 0)])
             awaydf = np.pad(awaydf, [(0, self.k - len(awaydf)), (0, 0)])
@@ -95,9 +92,9 @@ class MyDataset(Dataset):
 
         if not single:
             for i in range(N):
-                get_data(x[i], i)
+                get_data(self.data_dir, x[i], i)
         else:
-            get_data(x, 0)
+            get_data(self.data_dir, x, 0)
         homearray = np.delete(homearray, [0, 1, 2, 3], axis=2)
         awayarray = np.delete(awayarray, [0, 1, 2, 3], axis=2)
 
@@ -117,6 +114,6 @@ if __name__ == '__main__':
     
     
     x1, x2, y = dataset[0]
-    print(dataset.x.iloc[0])
-    print(x1.shape, x2.shape)
+    # print(dataset.x.iloc[0])
+    # print(x1.shape, x2.shape)
     print(x1, x2, y)
