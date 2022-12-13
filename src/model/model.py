@@ -17,7 +17,7 @@ class TeamModel(nn.Module):
             ),
             nn.BatchNorm1d(5),
             nn.ReLU(),
-            # nn.MaxPool1d(2),
+            nn.MaxPool1d(3, 2),
 
             nn.Conv1d(
                 5,
@@ -28,7 +28,7 @@ class TeamModel(nn.Module):
             ),
             nn.BatchNorm1d(5),
             nn.ReLU(),
-            # nn.MaxPool1d(2),
+            nn.MaxPool1d(3, 2),
             
             nn.Conv1d(
                 5,
@@ -39,7 +39,7 @@ class TeamModel(nn.Module):
             ),
             nn.BatchNorm1d(5),
             nn.ReLU(),
-            # nn.MaxPool1d(2),
+            nn.MaxPool1d(3, 2),
 
             nn.Conv1d(
                 5,
@@ -50,19 +50,11 @@ class TeamModel(nn.Module):
             ),
             nn.BatchNorm1d(5),
             nn.ReLU(),
-            # nn.MaxPool1d(2),
+            nn.MaxPool1d(3, 2),
 
 
             nn.Flatten(),
             nn.LazyLinear(hidden_size),
-            nn.ReLU(),
-            nn.Linear(hidden_size, hidden_size),
-            nn.ReLU(),
-            nn.Linear(hidden_size, hidden_size),
-            nn.ReLU(),
-            nn.Linear(hidden_size, hidden_size),
-            nn.ReLU(),
-            nn.Linear(hidden_size, hidden_size),
             nn.ReLU(),
             nn.Linear(hidden_size, hidden_size),
             nn.ReLU(),
@@ -90,14 +82,6 @@ class BaseModel(nn.Module):
         self.team_analyzer = TeamModel(K, input_size, hidden_size1, feature_size)
         self.predictor = nn.Sequential(*[
             nn.Linear(feature_size*2, hidden_size2),
-            nn.ReLU(),
-            nn.Linear(hidden_size2, hidden_size2),
-            nn.ReLU(),
-            nn.Linear(hidden_size2, hidden_size2),
-            nn.ReLU(),
-            nn.Linear(hidden_size2, hidden_size2),
-            nn.ReLU(),
-            nn.Linear(hidden_size2, hidden_size2),
             nn.ReLU(),
             nn.Linear(hidden_size2, hidden_size2),
             nn.ReLU(),
