@@ -5,11 +5,56 @@ import torch.nn.functional as F
 
 class TeamModel(nn.Module):
 
-    def __init__(self, input_size, hidden_size, feature_size):
+    def __init__(self, K, input_size, hidden_size, feature_size):
         super(TeamModel, self).__init__()
         self.encoder = nn.Sequential(*[
+            nn.Conv2d(
+                K,
+                5,
+                [5, 5],
+                [2, 2],
+                padding='valid'
+            )
+            nn.BatchNorm2d(5),
+            nn.ReLU(),
+            nn.nn.MaxPool2d(2),
+
+            nn.Conv2d(
+                5,
+                5,
+                [5, 5],
+                [2, 2],
+                padding='valid'
+            )
+            nn.BatchNorm2d(5),
+            nn.ReLU(),
+            nn.nn.MaxPool2d(2),
+            
+            nn.Conv2d(
+                5,
+                5,
+                [5, 5],
+                [2, 2],
+                padding='valid'
+            )
+            nn.BatchNorm2d(5),
+            nn.ReLU(),
+            nn.nn.MaxPool2d(2),
+
+            nn.Conv2d(
+                K,
+                5,
+                [5, 5],
+                [2, 2],
+                padding='valid'
+            )
+            nn.BatchNorm2d(5),
+            nn.ReLU(),
+            nn.nn.MaxPool2d(2),
+
+
             nn.Flatten(),
-            nn.Linear(input_size*10, hidden_size),
+            nn.LazyLinear(hidden_size),
             nn.ReLU(),
             nn.Linear(hidden_size, hidden_size),
             nn.ReLU(),
