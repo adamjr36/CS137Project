@@ -87,7 +87,7 @@ class BaseModel(nn.Module):
 
     def __init__(self, K, input_size, feature_size, hidden_size1, hidden_size2, output_size=3):
         super(BaseModel, self).__init__()
-        self.team_analyzer = TeamModel(input_size, hidden_size1, feature_size)
+        self.team_analyzer = TeamModel(K, input_size, hidden_size1, feature_size)
         self.predictor = nn.Sequential(*[
             nn.Linear(feature_size*2, hidden_size2),
             nn.ReLU(),
