@@ -42,6 +42,7 @@ def train(train_loader, model, opt, loss_fn, epochs, device):
     correct = 0
     for i, data in enumerate(train_loader):
         t1, t2, y = data 
+        print(t1.shape)
         t1, t2, y = t1.to(device), t2.to(device), y.to(device)
         y_hat = model(t1, t2)
         y_hat = torch.argmax(y_hat, axis=1)

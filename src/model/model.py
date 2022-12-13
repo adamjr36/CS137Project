@@ -11,8 +11,8 @@ class TeamModel(nn.Module):
             nn.Conv1d(
                 K,
                 5,
-                5,
-                2,
+                kernel_size=5,
+                stride=2,
                 padding='valid'
             ),
             nn.BatchNorm1d(5),
@@ -22,8 +22,8 @@ class TeamModel(nn.Module):
             nn.Conv1d(
                 5,
                 5,
-                5,
-                2,
+                kernel_size=5,
+                stride=2,
                 padding='valid'
             ),
             nn.BatchNorm1d(5),
@@ -33,8 +33,8 @@ class TeamModel(nn.Module):
             nn.Conv1d(
                 5,
                 5,
-                5,
-                2,
+                kernel_size=5,
+                stride=2,
                 padding='valid'
             ),
             nn.BatchNorm1d(5),
@@ -44,8 +44,8 @@ class TeamModel(nn.Module):
             nn.Conv1d(
                 5,
                 5,
-                5,
-                2,
+                kernel_size=5,
+                stride=2,
                 padding='valid'
             ),
             nn.BatchNorm1d(5),
