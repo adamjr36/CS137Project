@@ -60,8 +60,8 @@ def train(train_loader, val_loader, model, opt, loss_fn, epochs, device):
                 right = torch.sum(y_hat==y)
                 correct += right
 
-        val_acc.append(correct / len(val_loader))
-        val_loss.append(v_loss)
+        val_acc.append(correct / (len(val_loader) * 8))
+        val_loss.append(v_loss / len(val_loader))
 
         print('Epoch {ep}, train loss {tloss}, val loss {vloss}, val acc {vacc}'.format(ep=ep, tloss=(running_loss / len(train_loader)), vloss=v_loss, vacc=(correct / len(val_loader))))
     
