@@ -15,42 +15,42 @@ class TeamModel(nn.Module):
                 2,
                 padding='valid'
             ),
-            nn.BatchNorm2d(5),
+            nn.BatchNorm1d(5),
             nn.ReLU(),
-            nn.MaxPool2d(2),
+            nn.MaxPool1d(2),
 
-            nn.Conv2d(
+            nn.Conv1d(
                 5,
                 5,
                 5,
                 2,
                 padding='valid'
             ),
-            nn.BatchNorm2d(5),
+            nn.BatchNorm1d(5),
             nn.ReLU(),
-            nn.MaxPool2d(2),
+            nn.MaxPool1d(2),
             
-            nn.Conv2d(
+            nn.Conv1d(
                 5,
                 5,
                 5,
                 5,
                 padding='valid'
             ),
-            nn.BatchNorm2d(5),
+            nn.BatchNorm1d(5),
             nn.ReLU(),
-            nn.MaxPool2d(2),
+            nn.MaxPool1d(2),
 
-            nn.Conv2d(
+            nn.Conv1d(
                 K,
                 5,
                 5,
                 2,
                 padding='valid'
             ),
-            nn.BatchNorm2d(5),
+            nn.BatchNorm1d(5),
             nn.ReLU(),
-            nn.MaxPool2d(2),
+            nn.MaxPool1d(2),
 
 
             nn.Flatten(),
