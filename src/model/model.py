@@ -23,6 +23,14 @@ class TeamModel(nn.Module):
             nn.ReLU(),
             nn.Linear(hidden_size, hidden_size),
             nn.ReLU(),
+            nn.Linear(hidden_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, hidden_size),
+            nn.ReLU(),
             nn.Linear(hidden_size, feature_size)
         ])
     
@@ -37,6 +45,14 @@ class BaseModel(nn.Module):
         self.team_analyzer = TeamModel(input_size, hidden_size1, feature_size)
         self.predictor = nn.Sequential(*[
             nn.Linear(feature_size*2, hidden_size2),
+            nn.ReLU(),
+            nn.Linear(hidden_size2, hidden_size2),
+            nn.ReLU(),
+            nn.Linear(hidden_size2, hidden_size2),
+            nn.ReLU(),
+            nn.Linear(hidden_size2, hidden_size2),
+            nn.ReLU(),
+            nn.Linear(hidden_size2, hidden_size2),
             nn.ReLU(),
             nn.Linear(hidden_size2, hidden_size2),
             nn.ReLU(),
