@@ -42,8 +42,9 @@ def train(train_loader, model, opt, loss_fn, epochs, device):
         t1, t2, y = data 
         t1, t2, y = t1.to(device), t2.to(device), y.to(device)
         y_hat = model(t1, t2)
-        y_hat = torch.argmax(y_hat)
-        if y_hat == y: correct += 1
+        y_hat = torch.argmax(y_hat, axis=1)
+        right = torch.sum(y_hat==y)
+        correct += right
     print(correct/len(train_loader))
     
     print(loss)
