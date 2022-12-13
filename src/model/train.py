@@ -50,10 +50,10 @@ def train(train_loader, val_loader, model, opt, loss_fn, epochs, device):
             for i, data in enumerate(val_loader):
                 t1, t2, y = data 
                 t1, t2, y = t1.to(device), t2.to(device), y.to(device)
-                y = F.one_hot(y, num_classes=3)
+                y_oh = F.one_hot(y, num_classes=3)
 
                 y_hat = model(t1, t2)
-                loss = loss_fn(y_hat, y.float())
+                loss = loss_fn(y_hat, y_oh.float())
                 v_loss += loss.item()
 
                 y_hat = torch.argmax(y_hat, axis=1)
