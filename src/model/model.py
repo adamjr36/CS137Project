@@ -8,11 +8,11 @@ class TeamModel(nn.Module):
     def __init__(self, K, input_size, hidden_size, feature_size):
         super(TeamModel, self).__init__()
         self.encoder = nn.Sequential(*[
-            nn.Conv2d(
+            nn.Conv1d(
                 K,
                 5,
-                [5, 5],
-                [2, 2],
+                5,
+                2,
                 padding='valid'
             ),
             nn.BatchNorm2d(5),
@@ -22,8 +22,8 @@ class TeamModel(nn.Module):
             nn.Conv2d(
                 5,
                 5,
-                [5, 5],
-                [2, 2],
+                5,
+                2,
                 padding='valid'
             ),
             nn.BatchNorm2d(5),
@@ -33,8 +33,8 @@ class TeamModel(nn.Module):
             nn.Conv2d(
                 5,
                 5,
-                [5, 5],
-                [2, 2],
+                5,
+                5,
                 padding='valid'
             ),
             nn.BatchNorm2d(5),
@@ -44,8 +44,8 @@ class TeamModel(nn.Module):
             nn.Conv2d(
                 K,
                 5,
-                [5, 5],
-                [2, 2],
+                5,
+                2,
                 padding='valid'
             ),
             nn.BatchNorm2d(5),
