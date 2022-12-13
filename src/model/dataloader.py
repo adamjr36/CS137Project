@@ -7,8 +7,8 @@ from torch.utils.data import Dataset, DataLoader
 import os
 
 root = os.path.dirname(os.path.dirname(os.getcwd()))
-data_dir = os.path.join(root, 'cleaned_data')
-csvs = os.listdir(data_dir)
+data_dir = os.path.join(root, 'CS137Project/cleaned_data')
+# csvs = os.listdir(data_dir)
 
 def make_inputs():
     df = pd.read_csv(os.path.join(data_dir, 'master_data.csv'))
@@ -41,7 +41,9 @@ def team_df(team):
 
 
 class MyDataset(Dataset):
-    def __init__(self, x, y, k=10, seed=None):
+    def __init__(self, data_dir, x, y, k=10, seed=None):
+        # print(os.path.join(data_dir, x))
+        self.data_dir = data_dir
         x = pd.read_csv(os.path.join(data_dir, x))
         y = pd.read_csv(os.path.join(data_dir, y))
         x['Win'] = y['Win']
@@ -96,8 +98,13 @@ class MyDataset(Dataset):
                 get_data(x[i], i)
         else:
             get_data(x, 0)
+        homearray = np.delete(homearray, [0, 1, 2, 3], axis=2)
+        awayarray = np.delete(awayarray, [0, 1, 2, 3], axis=2)
 
-        return homearray, awayarray, y
+        homearray = np.squeeze(homearray, axis=0)
+        awayarray = np.squeeze(awayarray, axis=0)
+
+        return np.array(homearray, dtype=np.float32), np.array(awayarray, dtype=np.float32), y
 
 if __name__ == '__main__':
 
