@@ -17,7 +17,7 @@ class TeamModel(nn.Module):
             ),
             nn.BatchNorm2d(5),
             nn.ReLU(),
-            nn.nn.MaxPool2d(2),
+            nn.MaxPool2d(2),
 
             nn.Conv2d(
                 5,
@@ -28,7 +28,7 @@ class TeamModel(nn.Module):
             ),
             nn.BatchNorm2d(5),
             nn.ReLU(),
-            nn.nn.MaxPool2d(2),
+            nn.MaxPool2d(2),
             
             nn.Conv2d(
                 5,
@@ -39,7 +39,7 @@ class TeamModel(nn.Module):
             ),
             nn.BatchNorm2d(5),
             nn.ReLU(),
-            nn.nn.MaxPool2d(2),
+            nn.MaxPool2d(2),
 
             nn.Conv2d(
                 K,
@@ -50,7 +50,7 @@ class TeamModel(nn.Module):
             ),
             nn.BatchNorm2d(5),
             nn.ReLU(),
-            nn.nn.MaxPool2d(2),
+            nn.MaxPool2d(2),
 
 
             nn.Flatten(),
