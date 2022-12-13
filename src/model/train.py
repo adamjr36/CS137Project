@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch 
 import torch.nn.functional as F 
-import matplotlib.pyplot as plt 
+#import matplotlib.pyplot as plt 
 from torch.utils.data import Dataset, DataLoader
 
 # Hyper Parameters
@@ -40,8 +40,8 @@ def train(train_loader, val_loader, model, opt, loss_fn, epochs, device):
             training_loss.backward()
             opt.step()
 
-        print(f'Epoch {ep}, loss becomes {running_loss/len(train_loader)}')
-        train_loss.append(training_loss.item())
+       
+        train_loss.append(running_loss / len(train_loader))
 
         #Validation
         correct = 0
@@ -59,10 +59,11 @@ def train(train_loader, val_loader, model, opt, loss_fn, epochs, device):
                 y_hat = torch.argmax(y_hat, axis=1)
                 right = torch.sum(y_hat==y)
                 correct += right
-            print(correct/len(train_loader))
 
-        val_acc.append(correct / len(train_loader))
+        val_acc.append(correct / len(val_loader))
         val_loss.append(v_loss)
+
+        print('Epoch {ep}, train loss {tloss}, val loss {vloss}, val acc {vacc}'.format(ep=ep, tloss=(running_loss / len(train_loader)), vloss=v_loss, vacc=(correct / len(val_loader))))
     
     return train_loss, val_loss, val_acc
 
