@@ -5,6 +5,7 @@ import torch.nn as nn
 #import matplotlib.pyplot as plt
 from torch.utils.data import Dataset, DataLoader
 import os
+from googlenews import GoogleNews, getnews
 
 def make_inputs():
     df = pd.read_csv(os.path.join(data_dir, 'master_data.csv'))
@@ -102,6 +103,30 @@ class MyDataset(Dataset):
         awayarray = np.squeeze(awayarray, axis=0)
 
         return np.array(homearray, dtype=np.float32), np.array(awayarray, dtype=np.float32), y
+
+
+class MyDataset2(MyDataset):
+    def __init__(self, data_dir, x, y, k=10, t=10, seed=None):
+        super(MyDataset2, self).__init__(data_dir, x, y, k, seed)
+
+        self.t = t
+
+    def __getitem__(self, idx):
+        home, away, y = super().__getitem__(idx)
+
+        x = self.x.iloc[idx].to_numpy()
+        gnews = GoogleNews(language='en', max_results=10)
+        homenews, awaynews = getnews(x, gnews)
+
+        '''for news in homenews:
+            for i, n in enumerate(news):
+                news[i] = n['title']
+        for news in awaynews:
+            for i, n in enumerate(news):
+                news[i] = n['title']'''
+
+        return home, homenews, away, awaynews, y
+
 
 if __name__ == '__main__':
 

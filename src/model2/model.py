@@ -4,11 +4,11 @@ import torch.nn as nn
 import torch.nn.functional as F
 from sentiment import GloveLayer
 
-glove_path = os.path.join(os.getcwd(), 'glove.6B.50d.txt')
+# glove_path = os.path.join(os.getcwd(), 'glove.6B.50d.txt')
 
 class SentimentModel(nn.Module):
 
-    def __init__(self, feature_size, hidden_size):
+    def __init__(self, feature_size, hidden_size, glove_path):
         super(SentimentModel, self).__init__()
 
         self.emb = GloveLayer(d=feature_size, glove_path=glove_path)

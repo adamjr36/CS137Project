@@ -8,13 +8,10 @@ from dataloader_copy import MyDataset
 import os
 from googlenews import GoogleNews, getnews
 
-root = os.path.dirname(os.path.dirname(os.getcwd()))
-data_dir = os.path.join(root, 'cleaned_data')
-csvs = os.listdir(data_dir)
 
 class MyDataset2(MyDataset):
-    def __init__(self, x, y, k=10, t=10, seed=None):
-        super(MyDataset2, self).__init__(x, y, k, seed)
+    def __init__(self, data_dir, x, y, k=10, t=10, seed=None):
+        super(MyDataset2, self).__init__(data_dir, x, y, k, seed)
 
         self.t = t
 
