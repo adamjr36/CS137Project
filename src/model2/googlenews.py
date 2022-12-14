@@ -1,6 +1,7 @@
 from gnews import GNews
 import sys
 from datetime import datetime, timedelta
+import numpy as np
 
 ''''''
 class GoogleNews(GNews):
@@ -50,8 +51,17 @@ returned by get_news : [get_news(A, date - 1, date)]
 Expect date as 'yyyy-mm-dd'
 '''
 def getnews(queries, gnews):
+    k = gnews.max_results
+    n = 0
+
+    if queries.ndim == 1:
+        n = 1
+    else:
+        n = len(queries)
+
     newsA = []
     newsB = []
+
 
     def process_query(query):
         A = query[0]
@@ -63,8 +73,19 @@ def getnews(queries, gnews):
         end = date - td
         start = end - td
 
-        newsA.append(gnews.get_news(A, start, end))
-        newsB.append(gnews.get_news(B, start, end))
+        newsa = gnews.get_news(A, start, end)
+        newsb = gnews.get_news(B, start, end)
+
+        newsarray = np.full((k), '', dtype=object)
+        newsbrray = np.full((k), '', dtype=object)
+
+        for i in range(len(newsa)):
+            newsarray[i] = newsa[i]['title']
+        for i in range(len(newsb)):
+            newsbrray[i] = newsb[i]['title']
+
+        newsA.append(newsarray)
+        newsB.append(newsbrray)
 
     if queries.ndim == 1:
         process_query(queries)
@@ -72,7 +93,7 @@ def getnews(queries, gnews):
         for query in queries:
             process_query(query)
 
-    return newsA, newsB
+    return np.stack(newsA, axis=0), np.stack(newsB, axis=0)
 
 
 
