@@ -39,6 +39,7 @@ def embed_sequence(seq, embeddings_index, d):
         print('{} not in index'.format(clean_str(word)))
   return ret
 
+
 class GloveLayer(nn.Module):
     def __init__(self, d, glove_path, max_length=30):
         super().__init__()
@@ -61,8 +62,8 @@ class GloveLayer(nn.Module):
             else:  
                 padlen = self.maxlen - l
                 pad = np.zeros((padlen, self.d))
-                print(pad.shape)
-                print(seq.shape)
+                #print(pad.shape)
+                #print(seq.shape)
                 seq = np.concatenate((seq, pad))
             ###
 

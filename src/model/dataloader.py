@@ -7,7 +7,7 @@ from torch.utils.data import Dataset, DataLoader
 import os
 from googlenews import GoogleNews, getnews
 
-def make_inputs():
+def make_inputs(data_dir):
     df = pd.read_csv(os.path.join(data_dir, 'master_data.csv'))
     df = df[['Match', 'Home Team', 'Away Team', 'Date', 'Win', 'Team', 'Home']]
     df = df.drop_duplicates(subset=['Match'])
@@ -96,11 +96,12 @@ class MyDataset(Dataset):
                 get_data(self.data_dir, x[i], i)
         else:
             get_data(self.data_dir, x, 0)
+
         homearray = np.delete(homearray, [0, 1, 2, 3], axis=2)
         awayarray = np.delete(awayarray, [0, 1, 2, 3], axis=2)
 
-        homearray = np.squeeze(homearray, axis=0)
-        awayarray = np.squeeze(awayarray, axis=0)
+        #homearray = np.squeeze(homearray, axis=0)
+        #awayarray = np.squeeze(awayarray, axis=0)
 
         return np.array(homearray, dtype=np.float32), np.array(awayarray, dtype=np.float32), y
 
@@ -115,15 +116,8 @@ class MyDataset2(MyDataset):
         home, away, y = super().__getitem__(idx)
 
         x = self.x.iloc[idx].to_numpy()
-        gnews = GoogleNews(language='en', max_results=10)
+        gnews = GoogleNews(language='en', max_results=self.t)
         homenews, awaynews = getnews(x, gnews)
-
-        '''for news in homenews:
-            for i, n in enumerate(news):
-                news[i] = n['title']
-        for news in awaynews:
-            for i, n in enumerate(news):
-                news[i] = n['title']'''
 
         return home, homenews, away, awaynews, y
 
