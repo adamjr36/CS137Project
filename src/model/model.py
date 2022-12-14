@@ -5,11 +5,56 @@ import torch.nn.functional as F
 
 class TeamModel(nn.Module):
 
-    def __init__(self, input_size, hidden_size, feature_size):
+    def __init__(self, K, input_size, hidden_size, feature_size):
         super(TeamModel, self).__init__()
         self.encoder = nn.Sequential(*[
+            nn.Conv1d(
+                K,
+                5,
+                kernel_size=5,
+                stride=2,
+                padding='valid'
+            ),
+            nn.BatchNorm1d(5),
+            nn.ReLU(),
+            nn.MaxPool1d(3, 2),
+
+            nn.Conv1d(
+                5,
+                5,
+                kernel_size=5,
+                stride=2,
+                padding='valid'
+            ),
+            nn.BatchNorm1d(5),
+            nn.ReLU(),
+            nn.MaxPool1d(3, 2),
+            
+            nn.Conv1d(
+                5,
+                5,
+                kernel_size=5,
+                stride=2,
+                padding='valid'
+            ),
+            nn.BatchNorm1d(5),
+            nn.ReLU(),
+            nn.MaxPool1d(3, 2),
+
+            nn.Conv1d(
+                5,
+                5,
+                kernel_size=5,
+                stride=2,
+                padding='valid'
+            ),
+            nn.BatchNorm1d(5),
+            nn.ReLU(),
+            nn.MaxPool1d(3, 2),
+
+
             nn.Flatten(),
-            nn.Linear(input_size*10, hidden_size),
+            nn.LazyLinear(hidden_size),
             nn.ReLU(),
             nn.Linear(hidden_size, hidden_size),
             nn.ReLU(),
@@ -32,9 +77,9 @@ class TeamModel(nn.Module):
 
 class BaseModel(nn.Module):
 
-    def __init__(self, input_size, feature_size, hidden_size1, hidden_size2, output_size=3):
+    def __init__(self, K, input_size, feature_size, hidden_size1, hidden_size2, output_size=3):
         super(BaseModel, self).__init__()
-        self.team_analyzer = TeamModel(input_size, hidden_size1, feature_size)
+        self.team_analyzer = TeamModel(K, input_size, hidden_size1, feature_size)
         self.predictor = nn.Sequential(*[
             nn.Linear(feature_size*2, hidden_size2),
             nn.ReLU(),
