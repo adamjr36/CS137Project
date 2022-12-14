@@ -25,6 +25,13 @@ class MyDataset2(MyDataset):
         gnews = GoogleNews(language='en', max_results=10)
         homenews, awaynews = getnews(x, gnews)
 
+        '''for news in homenews:
+            for i, n in enumerate(news):
+                news[i] = n['title']
+        for news in awaynews:
+            for i, n in enumerate(news):
+                news[i] = n['title']'''
+
         return home, homenews, away, awaynews, y
 
    
