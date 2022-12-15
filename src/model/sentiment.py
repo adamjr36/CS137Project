@@ -62,8 +62,8 @@ class GloveLayer(nn.Module):
             else:  
                 padlen = self.maxlen - l
                 pad = np.zeros((padlen, self.d))
-                print(pad.shape)
-                print(seq.shape)
+                #print(pad.shape)
+                #print(seq.shape)
                 seq = np.concatenate((seq, pad))
             ###
 
