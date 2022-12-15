@@ -7,7 +7,7 @@ from torch.utils.data import Dataset, DataLoader
 import os
 from googlenews import GoogleNews, getnews
 
-def make_inputs():
+def make_inputs(data_dir):
     df = pd.read_csv(os.path.join(data_dir, 'master_data.csv'))
     df = df[['Match', 'Home Team', 'Away Team', 'Date', 'Win', 'Team', 'Home']]
     df = df.drop_duplicates(subset=['Match'])
