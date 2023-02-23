@@ -192,13 +192,13 @@ team, which are then passed to the Predictor with the same architecture.
 
 <div class="center">
 
-![image](report_src/base_model)
+![image](report_src/base_model.png)
 
 </div>
 
 <div class="center">
 
-![image](report_src/final_model)
+![image](report_src/final_model.png)
 
 </div>
 
