@@ -1,3 +1,5 @@
+# CS137 Final Project
+
 # Introduction
 
 Soccer is estimated to be the most popular sport in the world, with
@@ -137,8 +139,8 @@ Away Team, Date), and uses the hyperparameter K to query the larger .csv
 files of data for the model input,
 *X* ∈ ℝ<sup>*N* × 2 × *K* × *D*</sup>. While this takes longer than it
 would take to store this data directly, we made this decision to only
-store data in *O*(*M*) space, where *M* is the number of games we have
-data for, instead of *O*(*M**K*) space, where *K* is a variable
+store data in *O*($M$) space, where *M* is the number of games we have
+data for, instead of *O*($MK$) space, where *K* is a variable
 hyperparameter.
 
 For our Augmented Model we also had to retrieve data from Google News
@@ -220,7 +222,7 @@ previous matches from each team for each match, there was overlap
 between the three different sets we were using. This conclusion was
 likely correct, as after we separated our training and test sets
 chronologically, the accuracy fell to 60.1% We then tried replacing the
-feedforward network in in the Team Analyzer with a *G**R**U*, and our
+feedforward network in in the Team Analyzer with a $GRU$, and our
 first experiment with num_layers = 4, feature_size = 128 gave us
 slightly better test accuracy: 61.6%.
 
