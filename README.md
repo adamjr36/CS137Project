@@ -164,7 +164,7 @@ indication of the team’s in-game ability. The first part of the model is
 a public team analyzer that analyzes this ability for each team and
 encodes the ability into a vector. Considering the previous *K* match
 records can be formulated as a sequence naturally, this analyzer is
-implemented with *L**S**T**M* that maps *R*<sup>*N* × *K* × *D*</sup>
+implemented with $LSTM$ that maps *R*<sup>*N* × *K* × *D*</sup>
 into *R*<sup>*N* × *F*</sup>, where *F* is the dimension of our team
 feature vector and *N* is the batch size.
 
